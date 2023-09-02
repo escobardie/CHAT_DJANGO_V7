@@ -3,7 +3,7 @@
 {% load static chatextras %}
 
 {% block content %}
-    <h1 class="text-2xl">Room "{{ room.uuid }}"</h1>
+    <h1 class="text-2xl">Sala "{{ room.uuid }}"</h1>
 
     <hr class="my-6">
 
@@ -44,8 +44,8 @@
     </div>
 
     {% if room.status == 'active' %}
-        <input type="text" name="body" id="chat_message_input" class="w-full mb-4 p-4 bg-gray-100 rounded-xl" placeholder="Type your message...">
-        <button id="chat_message_submit" class="py-2 px-6 bg-rose-600 text-white rounded-xl">Send</button>
+        <input type="text" name="body" id="chat_message_input" class="w-full mb-4 p-4 bg-gray-100 rounded-xl" placeholder="Escribir tu mensaje...">
+        <button id="chat_message_submit" class="py-2 px-6 bg-rose-600 text-white rounded-xl">Enviar</button>
     {% endif %}
 {% endblock %}
 
