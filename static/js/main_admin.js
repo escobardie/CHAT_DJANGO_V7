@@ -90,7 +90,7 @@ function onChatMessage(data) {
 
                     <div>
                         <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
-                            <p class="text-sm">The client is typing...</p>
+                            <p class="text-sm">Cliente escribiendo...</p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@ chatSocket.onopen = function(e) {
 }
 
 chatSocket.onclose = function(e) {
-    console.log('chat socket closed unexpectadly')
+    console.log('El socket de chat se cerró inesperadamente.')
 }
 
 

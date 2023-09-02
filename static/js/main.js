@@ -105,7 +105,7 @@ function onChatMessage(data) {
             `
         }
     } else if (data.type == 'users_update') {
-        chatLogElement.innerHTML += '<p class="mt-2">The admin/agent has joined the chat!'
+        chatLogElement.innerHTML += '<p class="mt-2">¡El administrador/agente se ha unido al chat!'
     } else if (data.type == 'writing_active') {
         if (data.agent) {
             let tmpInfo = document.querySelector('.tmp-info')
@@ -120,7 +120,7 @@ function onChatMessage(data) {
 
                     <div>
                         <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
-                            <p class="text-sm">The agent/admin is writing a message</p>
+                            <p class="text-sm">El agente/administrador está escribiendo un mensaje.</p>
                         </div>
                     </div>
                 </div>
