@@ -45,22 +45,22 @@ class ChatConsumer(AsyncWebsocketConsumer):
         text_data_json = json.loads(text_data)
         type = text_data_json['type']
         message = text_data_json['message']
-        name = text_data_json['name']
+        username = text_data_json['username']
         agent = text_data_json.get('agent', '')
 
         print('Receive:', type)
 
         if type == 'message':
-            new_message = await self.create_message(name, message, agent)
+            new_message = await self.create_message(username, message, agent)
 
             # Send message to group / room
             await self.channel_layer.group_send(
                 self.room_group_name, {
                     'type': 'chat_message',
                     'message': message,
-                    'name': name,
+                    'username': username,
                     'agent': agent,
-                    'initials': initials(name),
+                    'initials': initials(username),
                     'created_at': timesince(new_message.created_at),
                 }
             )
@@ -71,9 +71,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 self.room_group_name, {
                     'type': 'writing_active',
                     'message': message,
-                    'name': name,
+                    'username': username,
                     'agent': agent,
-                    'initials': initials(name),
+                    'initials': initials(username),
                 }
             )
 
@@ -83,7 +83,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.send(text_data=json.dumps({
             'type': event['type'],
             'message': event['message'],
-            'name': event['name'],
+            'username': event['username'],
             'agent': event['agent'],
             'initials': event['initials'],
             'created_at': event['created_at'],
@@ -95,7 +95,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.send(text_data=json.dumps({
             'type': event['type'],
             'message': event['message'],
-            'name': event['name'],
+            'username': event['username'],
             'agent': event['agent'],
             'initials': event['initials'],
         }))

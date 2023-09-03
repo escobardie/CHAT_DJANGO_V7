@@ -21,10 +21,10 @@ def about(request):
 
 @require_POST
 def create_room(request, uuid):
-    name = request.POST.get('name', '')
+    username = request.POST.get('username', '')
     url = request.POST.get('url', '')
 
-    Room.objects.create(uuid=uuid, client=name, url=url)
+    Room.objects.create(uuid=uuid, client=username, url=url)
 
     return JsonResponse({'message': 'Sala creada'})
 

@@ -3,7 +3,7 @@ from django import template
 register = template.Library()
 
 
-@register.filter(name='initials')
+@register.filter(username='initials')
 def initials(value):
     initials = ''
 

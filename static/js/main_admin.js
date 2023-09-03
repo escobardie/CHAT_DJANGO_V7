@@ -29,7 +29,7 @@ function sendMessage() {
     chatSocket.send(JSON.stringify({
         'type': 'message',
         'message': chatInputElement.value,
-        'name': document.querySelector('#user_name').textContent.replaceAll('"', ''),
+        'username': document.querySelector('#user_name').textContent.replaceAll('"', ''),
         'agent': document.querySelector('#user_id').textContent.replaceAll('"', ''),
     }))
 
@@ -72,7 +72,7 @@ function onChatMessage(data) {
                         <span class="text-xs text-gray-500 leading-none">${data.created_at}</span>
                     </div>
 
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.name} 23</div>
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.initials} 23</div>
                 </div>
             `
         }
@@ -149,7 +149,7 @@ chatInputElement.onfocus = function(e) {
     chatSocket.send(JSON.stringify({
         'type': 'update',
         'message': 'writing_active',
-        'name': document.querySelector('#user_name').textContent.replaceAll('"', ''), // original
+        'username': document.querySelector('#user_name').textContent.replaceAll('"', ''), // original
         //'username': document.querySelector('#user_name').textContent.replaceAll('"', ''),
         'agent': document.querySelector('#user_id').textContent.replaceAll('"', ''),
     }))

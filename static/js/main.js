@@ -33,7 +33,7 @@ function scrollToBottom() {
 }
 
 
-function getCookie(name) {
+function getCookie(username) {
     var cookieValue = null
 
     if (document.cookie && document.cookie != '') {
@@ -42,8 +42,8 @@ function getCookie(name) {
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i].trim()
 
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+            if (cookie.substring(0, username.length + 1) === (username + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(username.length + 1))
 
                 break
             }
@@ -58,7 +58,7 @@ function sendMessage() {
     chatSocket.send(JSON.stringify({
         'type': 'message',
         'message': chatInputElement.value,
-        'name': chatName
+        'username': chatName
     }))
 
     chatInputElement.value = ''
@@ -141,7 +141,7 @@ async function joinChatRoom() {
     console.log('Room uuid:', chatRoomUuid)
 
     const data = new FormData()
-    data.append('name', chatName)
+    data.append('username', chatName)
     data.append('url', chatWindowUrl)
 
     await fetch(`/api/create-room/${chatRoomUuid}/`, {
@@ -229,6 +229,6 @@ chatInputElement.onfocus = function(e) {
     chatSocket.send(JSON.stringify({
         'type': 'update',
         'message': 'writing_active',
-        'name': chatName
+        'username': chatName
     }))
 }
