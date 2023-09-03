@@ -50,14 +50,14 @@ function onChatMessage(data) {
         if (!data.agent) {
             chatLogElement.innerHTML += `
                 <div class="flex w-full mt-2 space-x-3 max-w-md">
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.initials}</div>
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.initials} 22</div>
 
                     <div>
                         <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
                             <p class="text-sm">${data.message}</p>
                         </div>
                         
-                        <span class="text-xs text-gray-500 leading-none">${data.created_at} ago</span>
+                        <span class="text-xs text-gray-500 leading-none">${data.created_at}</span>
                     </div>
                 </div>
             `
@@ -69,10 +69,10 @@ function onChatMessage(data) {
                             <p class="text-sm">${data.message}</p>
                         </div>
                         
-                        <span class="text-xs text-gray-500 leading-none">${data.created_at} ago</span>
+                        <span class="text-xs text-gray-500 leading-none">${data.created_at}</span>
                     </div>
 
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.initials}</div>
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.name} 23</div>
                 </div>
             `
         }
@@ -86,7 +86,7 @@ function onChatMessage(data) {
 
             chatLogElement.innerHTML += `
                 <div class="tmp-info flex w-full mt-2 space-x-3 max-w-md">
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.initials}</div>
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">${data.initials} 24</div>
 
                     <div>
                         <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
@@ -149,7 +149,8 @@ chatInputElement.onfocus = function(e) {
     chatSocket.send(JSON.stringify({
         'type': 'update',
         'message': 'writing_active',
-        'name': document.querySelector('#user_name').textContent.replaceAll('"', ''),
+        'name': document.querySelector('#user_name').textContent.replaceAll('"', ''), // original
+        //'username': document.querySelector('#user_name').textContent.replaceAll('"', ''),
         'agent': document.querySelector('#user_id').textContent.replaceAll('"', ''),
     }))
 }
