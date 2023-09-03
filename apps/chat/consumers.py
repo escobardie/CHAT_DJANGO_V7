@@ -5,7 +5,7 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 from django.utils.timesince import timesince
 
-from apps.account.models import User
+from django.contrib.auth.models import User
 
 from .models import Room, Message
 from .templatetags.chatextras import initials

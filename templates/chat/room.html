@@ -8,11 +8,11 @@
     <hr class="my-6">
 
     <p class="mb-6">
-        <b>Name: </b>{{ room.client }}<br>
-        <b>Started: </b>{{ room.created_at|timesince }} ago<br>
-        <b>Status: </b>{{ room.get_status_display }}<br>
-        <b>Page: </b>{{ room.url }}<br>
-        <b>Agent: </b>{% firstof room.agent.name 'None yet...' %}
+        <b>Nombre: </b>{{ room.client }}<br>
+        <b>Tiempo: </b>{{ room.created_at|timesince }}<br>
+        <b>Estado: </b>{{ room.get_status_display }}<br>
+        <b>Url: </b>{{ room.url }}<br>
+        <b>Agente: </b>{% firstof room.agent.username 'Ningun Agente...' %}
     </p>
 
     <hr class="mb-6">

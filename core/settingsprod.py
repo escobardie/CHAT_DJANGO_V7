@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['jatte.com', '64.226.118.249']
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
-AUTH_USER_MODEL = 'account.User'
+# AUTH_USER_MODEL = 'account.User'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/chat-admin/'
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.account',
+    #'apps.account',
     'apps.chat',
 ]
 

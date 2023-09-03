@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.account.models import User
+from django.contrib.auth.models import User
 
 
 class Message(models.Model):
@@ -22,9 +22,9 @@ class Room(models.Model):
     CLOSED = 'closed'
 
     CHOICES_STATUS = (
-        (WAITING, 'Waiting'),
-        (ACTIVE, 'Active'),
-        (CLOSED, 'Closed'),
+        (WAITING, 'En espera'),
+        (ACTIVE, 'Activo'),
+        (CLOSED, 'Cerrado'),
     )
 
     uuid = models.CharField(max_length=255)

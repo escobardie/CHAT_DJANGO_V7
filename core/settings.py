@@ -18,7 +18,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 ######################
-AUTH_USER_MODEL = 'account.User'
+# AUTH_USER_MODEL = 'account.User'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/chat-admin/'
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.account',
+    # 'apps.account',
     'apps.chat',
 ]
 
